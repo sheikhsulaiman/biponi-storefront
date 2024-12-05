@@ -1,17 +1,22 @@
 "use client"
 import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
+import Link from "next/link"
 
-import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export function HeroCarousel() {
+interface HeroCarouselProps {
+  items: {
+    image: string
+    link: string
+  }[]
+}
+
+export function HeroCarousel({ items }: HeroCarouselProps) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
@@ -19,25 +24,27 @@ export function HeroCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-xs"
+      className="w-full"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {items.map((item, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+              <Link href={item.link}>
+                <div className="flex items-center justify-center p-6">
+                  <img
+                    src={item.image}
+                    alt="carousel"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </Link>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   )
 }
