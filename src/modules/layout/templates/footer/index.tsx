@@ -18,10 +18,41 @@ export default async function Footer() {
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase underline underline-offset-8"
             >
-              Medusa Store
+              BIPONI
             </LocalizedClientLink>
+
+            <Text className="txt-small-plus text-ui-fg-subtle mt-2">
+              Your one-stop shop for all your needs.
+            </Text>
+
+            <ul className="mt-2">
+              <li>
+                <LocalizedClientLink
+                  href="/store"
+                  className="text-ui-fg-subtle font-bold hover:text-ui-fg-base"
+                >
+                  Store
+                </LocalizedClientLink>
+              </li>
+              <li>
+                <LocalizedClientLink
+                  href="/account"
+                  className="text-ui-fg-subtle font-bold hover:text-ui-fg-base"
+                >
+                  Account
+                </LocalizedClientLink>
+              </li>
+              <li>
+                <LocalizedClientLink
+                  href="/cart"
+                  className="text-ui-fg-subtle font-bold hover:text-ui-fg-base"
+                >
+                  Cart
+                </LocalizedClientLink>
+              </li>
+            </ul>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
@@ -109,46 +140,40 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base">Contact Us</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="mailto:constct@biponi.com"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    GitHub
+                    contact@biponi.com
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
+                <li>+880 123 456 7890</li>
+                <li>House 1/2, Zirani, Savar, Dhaka</li>
               </ul>
             </div>
           </div>
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} BIPONI. All rights reserved.
           </Text>
+          <p className="text-sm">
+            Made with <span className="text-red-400 font-bold">♡</span> by{" "}
+            <a
+              href="https://sonyed.tech"
+              target="_blank"
+              className="hover:underline hover:text-yellow-800 font-bold"
+            >
+              Sony
+            </a>
+            , <span className="font-bold">Siyam</span>, and{" "}
+            <span className="font-bold">Jalal</span>
+          </p>
           <MedusaCTA />
         </div>
       </div>
