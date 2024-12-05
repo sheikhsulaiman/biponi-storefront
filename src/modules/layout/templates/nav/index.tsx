@@ -1,5 +1,9 @@
 import { Suspense } from "react"
 
+import { ShoppingCart } from "@medusajs/icons"
+import { User } from "@medusajs/icons"
+import { BuildingStorefront } from "@medusajs/icons"
+import { MagnifyingGlassMini } from "@medusajs/icons"
 import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -33,37 +37,41 @@ export default async function Nav() {
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
+                  className="hover:text-ui-fg-base hover:bg-slate-100 p-2 rounded-xl flex items-center justify-center space-x-2"
                   href="/search"
                   scroll={false}
                   data-testid="nav-search-link"
                 >
-                  Search
+                  <MagnifyingGlassMini />
+                  <p>Search</p>
                 </LocalizedClientLink>
               )}
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="hover:text-ui-fg-base hover:bg-slate-100 p-2 rounded-xl flex items-center justify-center space-x-2"
                 href="/store"
                 data-testid="nav-store-link"
               >
-                Store
+                <BuildingStorefront />
+                <p>Store</p>
               </LocalizedClientLink>
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="hover:text-ui-fg-base hover:bg-slate-100 p-2 rounded-xl flex items-center justify-center space-x-2"
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                <User />
+                <p>Account</p>
               </LocalizedClientLink>
             </div>
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
+                  className="hover:text-ui-fg-base hover:bg-slate-100 p-2 rounded-xl flex items-center justify-center gap-2"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  <ShoppingCart />
+                  <p>Cart (0)</p>
                 </LocalizedClientLink>
               }
             >
