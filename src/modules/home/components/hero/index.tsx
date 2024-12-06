@@ -25,7 +25,7 @@ const items = [
 
 const Hero = () => {
   return (
-    <div className="container mx-auto relative pt-8 px-24">
+    <div className="container mx-auto relative md:pt-8 md:px-24">
       {/* <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         <span>
           <Heading
