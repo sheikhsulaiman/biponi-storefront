@@ -61,7 +61,12 @@ export default async function Footer() {
                   Categories
                 </span>
                 <ul
-                  className="grid grid-cols-1 gap-2"
+                  className={clx(
+                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
+                    {
+                      "grid-cols-2": (collections?.length || 0) > 3,
+                    }
+                  )}
                   data-testid="footer-categories"
                 >
                   {productCategories?.slice(0, 6).map((c) => {
